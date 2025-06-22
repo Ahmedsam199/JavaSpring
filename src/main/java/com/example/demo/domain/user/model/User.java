@@ -1,10 +1,10 @@
 package com.example.demo.domain.user.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.example.demo.domain.todo.model.Todo;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -17,6 +17,9 @@ public class User {
     private String name;
     private String email;
     private  String password;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Todo> posts = new ArrayList<>();
+
 
     // 🔹 No-args constructor required by JPA
     protected User() {
