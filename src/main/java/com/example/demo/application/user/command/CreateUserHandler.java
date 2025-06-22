@@ -12,8 +12,8 @@ public class CreateUserHandler {
         this.repo = repo;
     }
 
-    public void handle(CreateUserCommand command) {
-        User user = new User(command.name(), command.email());
-        repo.save(user);
+    public User handle(CreateUserCommand command) {
+        User user = new User(command.name(), command.email(),command.password());
+        return repo.save(user);
     }
 }

@@ -7,4 +7,5 @@ import com.example.demo.domain.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SpringDataUserRepository extends JpaRepository<User, Long> {
+User findByName(String name);
 }

@@ -1,3 +1,3 @@
 package com.example.demo.application.user.command;
 
-public record CreateUserCommand(String name, String email) {}
+public record CreateUserCommand(String name, String email,String password) {}
